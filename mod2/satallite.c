@@ -40,9 +40,9 @@ int main()
     // Calculate Height = [(G M T^2)/(4PI^2)]^1/3 - R
     
     
-    height = GRAVITY * E_MASS * pow(time, 2);
+    height = Gravity * E_MASS * pow(time, 2);
     height = height/(4*pow(PI,2));
-    height = pow(height,1/3);
+    height = cbrt(height);
     height = height - E_RADIUS;
     
 
@@ -53,6 +53,14 @@ int main()
     //
     printf("Your satallite after %lf sec is %lf meters from earth.\n", 
             time, height);
+
+    
+    height = (cbrt((Gravity * E_MASS * pow(time, 2))/(4*pow(PI,2))) - E_RADIUS);
+    printf("Your satallite after %lf sec is %lf meters from earth.\n", 
+            time, height);
+
+    
+    
 
     return 0;
 }
