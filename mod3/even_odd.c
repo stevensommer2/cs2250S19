@@ -24,18 +24,19 @@
 // Main Function
 int main()
 {
-    int number;
-    printf("Enter an integer: ");
-    scanf("%d", &number);
+    int number1, number2;
+    printf("Enter an even and an odd integer: ");
+    scanf("%d %d", &number1, &number2);
     //compare or test value for even or odd
-    if(number % 2 == 0)
+    if((number1 + number2) % 2 !=0)
     {
-        printf("%d is even\n", number);
+        printf("%d and %d are even and odd numbers\n", number1, number2);
 
     }
     else
     {
-        printf("%d is odd\n", number);
+        printf("%d and %d are not an even and odd numbers\n",
+                number1, number2);
     }
     printf("Tchuss Freund\n");
     return 0;
