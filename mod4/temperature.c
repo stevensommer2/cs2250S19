@@ -20,7 +20,12 @@
 //const int FAHRENHEIT = 0 //C++ way to do lines 21 and 22
 #define CELSIUS 0
 #define FAHRENHEIT 1
+#define BOIL_CEL 100
+#define BOIL_FAHR 212
+#define FREEZE_CEL 0
+#define FREZE_FAHR 32
 // Constants
+
 
 // Function Prototypes
 
@@ -64,6 +69,28 @@ int main()
         printf("Sorry, you did not enter 0 or 1\nTchuss Schwein\n");
         return 0;
         }
+    //task 2
+    //test for boiling point, greezing point, and liquid point
+    if(choice == CELSIUS)
+    {
+        if(in_temp >= BOIL_CEL)
+        {
+            printf("Your water is boiling\n");
+        }
+    }
+    else   // FAHRENHEIT
+    {
+    
+
+        if(in_temp >= BOIL_FAHR)
+        {
+        printf("Your water is boiling\n");
+        }
+    }
+
+    
+
+
 
         /*
     
