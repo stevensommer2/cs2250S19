@@ -16,7 +16,10 @@
  * =====================================================================================
  */
 #include <stdio.h>
-
+//const int CELSIUS = 0 //C++ way to do lines 21 and 22
+//const int FAHRENHEIT = 0 //C++ way to do lines 21 and 22
+#define CELSIUS 0
+#define FAHRENHEIT 1
 // Constants
 
 // Function Prototypes
