@@ -77,6 +77,15 @@ int main()
         {
             printf("Your water is boiling\n");
         }
+        //&& is the AND operator
+        else if (in_temp > FREEZE_CEL && in_temp < BOIL_CEL)
+        {
+            printf("Your water is liquid\n");
+        }
+        else 
+        {
+            printf("Your water is frozen\n");
+        }
     }
     else   // FAHRENHEIT
     {
