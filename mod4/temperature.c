@@ -23,7 +23,7 @@
 #define BOIL_CEL 100
 #define BOIL_FAHR 212
 #define FREEZE_CEL 0
-#define FREZE_FAHR 32
+#define FREEZE_FAHR 32
 // Constants
 
 
@@ -95,7 +95,18 @@ int main()
         {
         printf("Your water is boiling\n");
         }
+
+
+        else if (in_temp > FREEZE_FAHR && in_temp < BOIL_FAHR)
+        {
+            printf("Your water is liquid\n");
+        }
+        else 
+        {
+            printf("Your water is frozen\n");
+        }
     }
+   
 
     
 
