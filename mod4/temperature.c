@@ -24,6 +24,9 @@
 #define BOIL_FAHR 212
 #define FREEZE_CEL 0
 #define FREEZE_FAHR 32
+#define BOIL 1
+#define LIQUID 2
+#define FROZEN 3
 // Constants
 
 
@@ -35,6 +38,7 @@ int main()
     double in_temp, out_temp;
     
     int choice;
+    int water_state = 0;
     //1) Ask user which temperature mode they want to use
     printf("Welcome to the temperature calculator\n");
     printf("Please enter your choice:\n");
@@ -75,16 +79,17 @@ int main()
     {
         if(in_temp >= BOIL_CEL)
         {
-            printf("Your water is boiling\n");
+            water_state = BOIL;
         }
         //&& is the AND operator
         else if (in_temp > FREEZE_CEL && in_temp < BOIL_CEL)
         {
-            printf("Your water is liquid\n");
+            water_state = LIQUID;
         }
         else 
         {
-            printf("Your water is frozen\n");
+            water_state = FROZEN;
+
         }
     }
     else   // FAHRENHEIT
@@ -93,23 +98,34 @@ int main()
 
         if(in_temp >= BOIL_FAHR)
         {
-        printf("Your water is boiling\n");
+        water_state = BOIL;
         }
 
 
         else if (in_temp > FREEZE_FAHR && in_temp < BOIL_FAHR)
         {
-            printf("Your water is liquid\n");
+            water_state = LIQUID;
         }
         else 
         {
-            printf("Your water is frozen\n");
+            water_state = FROZEN;
         }
+
     }
-   
-
+    //Switch 
+    switch(water_state)
+    {
+        case BOIL:
+            printf("Your water is boiling\n");
+            break;  //exit your switch statement
+        case LIQUID:
+            printf("Your water is liquid\n");
+            break;
+        case FROZEN:
+            printf("Your water is frozen\n");
+            break;
     
-
+    }
 
 
         /*
