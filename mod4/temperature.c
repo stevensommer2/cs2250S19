@@ -113,6 +113,13 @@ int main()
 
     }
     //Switch 
+    //&& -> AND
+    //|| -> OR
+    //! -> NOT
+    //==
+    //!=
+    //>, <, >=, <=
+
     switch(water_state)
     {
         case BOIL:
