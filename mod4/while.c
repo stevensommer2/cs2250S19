@@ -31,6 +31,8 @@ int main()
     // task 4: If user enters a number below MINCOUNT set it MINCOUNT
     //         and if user enters a calue greater than MAXCOUNT,
     //         set it to MAXCOUNT
+    // Task 5: Support multiple student entries. Calculate class average.
+    // Task 6: Display student letter grade.
     int count = 0;
     float grade, avg;
     float total = 0;
