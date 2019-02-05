@@ -18,7 +18,8 @@
 #include <stdio.h>
 
 // Constants
-#define MAXCOUNT 4
+#define MAXCOUNT 5
+#define MINCOUNT 2
 // Function Prototypes
 
 // Main Function
@@ -26,9 +27,28 @@ int main()
 {
     // Task 1: Calulate the average of user input values.
     // Task 2: Validate user input for 0 to 100 only
+    // Task 3: Ask user how many values they need to enter.
+    // task 4: If user enters a number below MINCOUNT set it MINCOUNT
+    //         and if user enters a calue greater than MAXCOUNT,
+    //         set it to MAXCOUNT
     int count = 0;
     float grade, avg;
     float total = 0;
+    int studentCount = 0;
+
+    printf("How many grades would you like to average? between  %d and %d?\n", MINCOUNT,  MAXCOUNT);
+    scanf("%d", &studentCount);
+
+        if(studentCount > MAXCOUNT)  {
+            printf("%d is more than %d. Setting your entry to %d\n",
+                    studentCount, MAXCOUNT, MAXCOUNT);
+            studentCount = MAXCOUNT;
+        }
+        if(studentCount < MINCOUNT)  {
+            printf("%d is less than %d. Setting your entry to %d\n",
+                    studentCount, MINCOUNT, MINCOUNT);
+            studentCount = MINCOUNT;
+        }
 
     while (count < MAXCOUNT) 
     {
@@ -46,8 +66,12 @@ int main()
         
         //update test condition: sentinel
         count++;
+        if(count == studentCount)
+        {
+            break;      //reach the studentCount
+        }
     }
-    avg = total / MAXCOUNT;   //calculate the average
+    avg = total / studentCount;   //calculate the average
     printf("Your avg is [%6.2f]\n", avg);
     printf("Tchuss Schwein\n");
 
