@@ -20,6 +20,8 @@
 // Constants
 #define MAXCOUNT 5
 #define MINCOUNT 2
+#define MINGRADE 0
+#define MAXGRADE 100
 // Function Prototypes
 
 // Main Function
@@ -54,12 +56,12 @@ int main()
 
     while (count < MAXCOUNT) 
     {
-        printf("Enter %d hw grades(0-100): ", count + 1);
+        printf("Enter %d hw grades(%d-%d): \n ", count + 1, MINGRADE, MAXGRADE);
         scanf("%f", &grade);
 
-            if (grade > 100 || grade < 0)
+            if (grade > MAXGRADE || grade < MINGRADE)
             {
-                printf("invalid input. Please try again.");
+                printf("invalid input. Please try again.\n");
 
             continue;   //invalid input
             }
