@@ -39,9 +39,9 @@ int main()
     // Task 6: Display student letter grade.
     int gradeCount = 0, studentCount = 1;
     float grade, avg;
-    float total = 0;
+    float total = 0, classAvg = 0;
     int hwCount;
-
+    
 
     while(studentCount <= MAXSTUDENTS)             //Loop over students
     {
@@ -77,12 +77,15 @@ int main()
         }               //End of one student 
         avg = total / hwCount;   //calculate the average
         printf("Your avg is [%6.2f]\n", avg);
+
+
         //reset value
         gradeCount = 0;
         total = 0;
 
         studentCount ++;
     }           //End of students loop
+    printf(" Your class avg is [%6.2f]\n", classAvg/MAXSTUDENTS);
     printf("Tchuss Schwein\n");
 
 
