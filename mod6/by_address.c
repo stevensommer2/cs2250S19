@@ -19,9 +19,10 @@
 #include <stdlib.h>
 // Constants
 
+
 // Function Prototypes
 void DisplayPosition(double x, double y);
-void DisplayOriginalPosition(double* x, double* y);  //* stores ADDRESS of double
+void DisplayOriginalPosition(const double* x, const double* y);  //* stores ADDRESS of double
 void UpdatePosition(double* x, double* y, double new_x, double new_y);
 void ResetPosition(double* x, double* y);
 
@@ -97,8 +98,8 @@ void UpdatePosition(double* x, double* y, double new_x, double new_y)  {
  *      Returns:  nothing
  * =====================================================================================
  */
-void DisplayOriginalPosition(double* x, double* y) {
-    
+void DisplayOriginalPosition(const double* x, const double* y) {
+                        //const causes a read-only atmosphere 
     printf("Your current position is (%4.2lf, %4.2lf) (orig)\n", *x, *y);
     printf("Your current original position address is (%p, %p) (orig)\n", x, y);
     // to display the values of pointers / address use the dereference
