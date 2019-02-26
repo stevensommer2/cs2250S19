@@ -22,7 +22,8 @@
 // Function Prototypes
 void DisplayPosition(double x, double y);
 void DisplayOriginalPosition(double* x, double* y);  //* stores ADDRESS of double
-void UpdatePosition(double x, double y, double new_x, double new_y);
+void UpdatePosition(double* x, double* y, double new_x, double new_y);
+void ResetPosition(double* x, double* y);
 
 // Main Function
 int main(int argc, char* argv[])
@@ -35,10 +36,14 @@ int main(int argc, char* argv[])
     }
     x = atof(argv[1]);    //convert the first input param to double
     y = atof(argv[2]);    //convert the first input param to double
-    printf("Your current position address is (%p, %p) (main)\n", &x, &y);
+   // printf("Your current position address is (%p, %p) (main)\n", &x, &y);
     DisplayOriginalPosition(&x, &y);  //takes two adresses of type double
-    DisplayPosition(x, y);
-    //UpdatePosition(x, y, 2, 4);
+    //DisplayPosition(x, y);
+    UpdatePosition(&x, &y, 2.0, 4.1);
+    
+   // DisplayOriginalPosition(&x, &y);    //takes two adresses of type double
+    ResetPosition(&x, &y);              //reset values to origin
+    //DisplayOriginalPosition(&x, &y);    // takes two address as doubles
     //DisplayPosition(x, y);
     return 0;
 }
@@ -63,19 +68,19 @@ void DisplayPosition(double x, double y) {
  * ===  FUNCTION  ======================================================================
  *         Name:  UpdatePosition
  *  Description:  Display current point position
- *        PARAM:  x => x coordinate
- *        PARAM:  y => y coordinate
+ *        PARAM:  x => x coordinate address
+ *        PARAM:  y => y coordinate address
  *        PARAM:  new_x => update x
  *        PARAM:  new_y => update y
  *      Returns:  nothing
  * =====================================================================================
  */
-void UpdatePosition(double x, double y, double new_x, double new_y)  {
+void UpdatePosition(double* x, double* y, double new_x, double new_y)  {
     printf("******Updating position******\n");
-    DisplayPosition(x, y);
-    x = new_x;
-    y = new_y;
-    DisplayPosition(x, y);
+    DisplayPosition(*x, *y);
+    *x = new_x;
+    *y = new_y;
+    
     printf("******Done Updating position******\n"); 
     return;
 }
@@ -100,3 +105,21 @@ void DisplayOriginalPosition(double* x, double* y) {
     // operator "*". This only applies to pointer.
     
 }
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  ResetPosition
+ *  Description:  Reset to original position (0,0)
+ *        PARAM: x => x coordinate
+ *        PARAM: y => y coordinate
+ *     returns: nothing
+ * =====================================================================================
+ */
+void ResetPosition(double* x, double* y) {
+    *x = 0;
+    *y = 0;
+
+    return;
+}
+
+
