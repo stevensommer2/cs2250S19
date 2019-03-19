@@ -52,6 +52,8 @@ int main(int argc, char* argv[])
     {
         printf(" %d\n", grades[i]);
     }
+    //Free memory when you are done
+    free(grades);
 
     return 0;
 }
