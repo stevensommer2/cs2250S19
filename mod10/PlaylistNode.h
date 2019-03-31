@@ -17,6 +17,7 @@
  */
 #ifndef  PLAYLISTNODE__INC__
 #define  PLAYLISTNODE__INC__
+#include <string.h>
     
 #define MAX 50
 typedef struct PlaylistNode_struct
