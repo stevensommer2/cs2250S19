@@ -39,6 +39,11 @@ PlaylistNode* GetNextPlaylistNode(PlaylistNode* thisNode);
 
 void PrintlistNode(PlaylistNode* thisNode);
 
+void PrintMenuOptions();
+int NumberOfSongs(PlaylistNode* thisNode[]);
+PlaylistNode * delete_item(PlaylistNode * curr, char x[MAX]);
+char getName(PlaylistNode * thisNode, char x[MAX]);
+
 
 #endif /* ----- #ifndef PLAYLISTNODE__INC__ ----- */
 
