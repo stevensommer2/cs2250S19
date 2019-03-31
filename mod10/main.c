@@ -3,12 +3,12 @@
  *
  *       Filename:  main.c
  *
- *    Description:  
+ *    Description:  use of the PlaylistNode
  *
  *        Version:  1.0
- *        Created:  03/27/2019 09:03:24 PM
+ *        Created:  03/26/2019 10:02:45 AM
  *       Revision:  none
- *       Compiler:  gcc main.c -o main.out -lm
+ *       Compiler:  gcc main.c PlaylistNode.c -o main.out -lm
             Usage:  ./main.out
  *
  *         Author:  Steven Sommer (), steven.sommer@mail.weber.edu
@@ -18,41 +18,57 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
-#include "Contacts.h"
+#include "PlaylistNode.h"
+#include <strings.h>
+
 // Constants
 
 // Function Prototypes
+void PrintMenu(char playlistTitle[]);
+
 
 // Main Function
 int main(int argc, char* argv[])
 {
+    char playlistTitle[50];
+    //1)prompt user for playlist title. Use fgets and do not forget to eliminate
+    //the end-of-line char
+    printf("Enter playlistTitle:\n");
+    fgets(playlistTitle, 50, stdin);
+    playlistTitle[strlen(playlistTitle) - 1] = '\0';
 
-   ContactNode* person[3] = {NULL, NULL, NULL};
-        for(int i=0; i<=2; i++)
-        {
-        ContactNode temp;
-        printf("Person %d\n", i+1);
-        printf("Enter name:\n");
-        fgets(temp.contactName, 50, stdin);
-        temp.contactName[strlen(temp.contactName)-1]='\0';
-        printf("Enter phone number:\n");
-        fgets(temp.contactPhoneNum, 50, stdin);
-        temp.contactPhoneNum[strlen(temp.contactPhoneNum)-1]='\0';
-        printf("You entered: %s, %s\n\n", temp.contactName, temp.contactPhoneNum);
-        person[i]=(ContactNode*)malloc(sizeof(ContactNode));
-        *person[i]=CreateContactNode(person[i], temp.contactName, temp.contactPhoneNum, NULL);
-        }
-    InsertContactAfter(person[0], person[1]);
-    InsertContactAfter(person[1], person[2]);
-    printf("CONTACT LIST\n");
-    PrintContactNode(person[0]);
-    PrintContactNode(person[1]);
-    PrintContactNode(person[2]);
+    //2) Output playlist menu options
+    PrintMenu(playlistTitle);
+
     return 0;
 }
 // Function Definitions
 
-
-
-
+void PrintMenu(char playlistTitle[])
+{
+    // printf("Welcome to my [%s] list\n", playlistTitle); //TODOL Remove before upload to 
+    //zybooks
+    //Create a bunch of temp variables: chars, ints, and PlaylistNode(pointers)
+    char menuOp = ' ';
+    //Output menu option
+    //Create a loop to print your options
+    while(menuOp != 'q')
+    {
+        printf("%s PLAYLIST MENU\n", playlisttitle); //TODO: Remove before upload to zyboks
+        //check for valid choices
+        //
+        //set correspoinding menu actionL
+        //switch menuOp
+        //
+        //Case 'a': Add a song
+        //case 'r': Output plaist message
+        //case 'c': Prompt user for new song location
+        //case 's': output songs by specific artist
+        //case 't': Output the total time of songs in seconds
+        //case 'o': Output full playlist
+        //case 'q': Quit, which is the exit of your loop
+        menuOp = 'q'; //TODO: Remove, this is only for testing
+    }//end of loop
+    return;
+}
 
