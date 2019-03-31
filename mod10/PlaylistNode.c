@@ -143,25 +143,3 @@ PlaylistNode * delete_item(PlaylistNode * curr, char x[MAX])
             }
  }
 
-//
-
-
-
-
-
-
-/* 
- * ===  FUNCTION  ======================================================================
- *         Name:  PrintlistNode
- *  Description:  Print the list node descriptions
- * =====================================================================================
- */
-void PrintlistNode(PlaylistNode* thisNode)
-{
-    //1) Print each member of the PlaylistNode
-    return;
-}
-
-// Function Definitions
-
-
