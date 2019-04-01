@@ -37,7 +37,7 @@ void SetNextPlaylistNode(PlaylistNode* thisNode, PlaylistNode* newNode);
 
 PlaylistNode* GetNextPlaylistNode(PlaylistNode* thisNode);
 
-void PrintplaylistNode(PlaylistNode* thisNode);
+void PrintPlaylistNode(PlaylistNode* thisNode);
 
 void PrintMenuOptions();
 int NumberOfSongs(PlaylistNode* thisNode[]);
