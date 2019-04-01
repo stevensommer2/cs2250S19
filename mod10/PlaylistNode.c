@@ -37,7 +37,7 @@ void CreatePlaylistNode(PlaylistNode* thisNode, char idInit[],
     thisNode->songLength=songlengthInit;
     //2) Set all your integers in thisNode to the input parameters
     //3) Set the next Node pointer to nextLoc
-    thisNode->nextNodeptr=nextLoc;
+    thisNode->nextNodePtr=nextLoc;
     return;
 }
 
@@ -47,11 +47,11 @@ void InsertPlaylistNodeAfter(PlaylistNode* thisNode, PlaylistNode* newNode)
 {
  PlaylistNode* tempNext = NULL;
     // 1) set temp to thisNode->nextPointer
-    tempNext= thisNode->nextNodeptr;
+    tempNext= thisNode->nextNodePtr;
     // 2) update thisNode->NextPointer to newNode
-    thisNode->nextNodeptr = newNode;
+    thisNode->nextNodePtr = newNode;
     // 3) set newNode->nextPointer to tempNext
-    newNode->nextNodeptr = tempNext;
+    newNode->nextNodePtr = tempNext;
     return;
 }
 
@@ -61,7 +61,7 @@ void SetNextPlaylistNode(PlaylistNode* thisNode, PlaylistNode* newNode)
 {
     // 1) set the thisNode->NextNodeptr to newNode
     // should be one or two lines of code
-    thisNode->nextNodeptr=newNode;
+    thisNode->nextNodePtr=newNode;
     //newNode=thisNode->nextNodeptr;
     
     return;
@@ -74,7 +74,7 @@ PlaylistNode* GetNextPlaylistNode(PlaylistNode* thisNode)
 {
     //1) return the next member in the list
 
-    return thisNode->nextNodeptr;
+    return thisNode->nextNodePtr;
 }
 
 void PrintPlaylistNode(PlaylistNode* thisNode)
@@ -132,13 +132,13 @@ PlaylistNode * delete_item(PlaylistNode * curr, char x[MAX])
             }
         else if(strcmp(curr->uniqueID, x)==0)
             {
-            next = curr->nextNodeptr;
+            next = curr->nextNodePtr;
             free(curr);
             return next;
             }
         else
             {
-            curr->nextNodeptr= delete_item(curr->nextNodeptr, x);
+            curr->nextNodePtr= delete_item(curr->nextNodeptr, x);
             return curr;
             }
  }
