@@ -138,7 +138,7 @@ PlaylistNode * delete_item(PlaylistNode * curr, char x[MAX])
             }
         else
             {
-            curr->nextNodePtr= delete_item(curr->nextNodeptr, x);
+            curr->nextNodePtr= delete_item(curr->nextNodePtr, x);
             return curr;
             }
  }
