@@ -167,10 +167,10 @@ start:  //goto will come back here
                 if((nextsong<=1)&&(songCurrent!=songHead)) 
                 {
 
-                    prechanger->nextNodeptr=songCurrent->nextNodeptr;
+                    prechanger->nextNodePtr=songCurrent->nextNodePtr;
                     changer=songHead;
                     songHead=songCurrent;
-                    songHead->nextNodeptr=changer;
+                    songHead->nextNodePtr=changer;
                 }
                 else if(difference>0) 
                     {
