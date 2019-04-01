@@ -29,7 +29,7 @@ typedef struct PlaylistNode_struct
     struct PlaylistNode_struct* nextNodePtr; //address of next member, NULL for last number
 }PlaylistNode;
 
-void CreatePlayListNode(PlaylistNode* thisNode, char idInit[], 
+void CreatePlaylistNode(PlaylistNode* thisNode, char idInit[], 
         char songNameInit[], char artistNameInit[],
         int songLengthInit, PlaylistNode* nextLoc);
 void InsertPlaylistNodeAfter(PlaylistNode* thisNode, PlaylistNode* newNode);
@@ -37,7 +37,7 @@ void SetNextPlaylistNode(PlaylistNode* thisNode, PlaylistNode* newNode);
 
 PlaylistNode* GetNextPlaylistNode(PlaylistNode* thisNode);
 
-void PrintlistNode(PlaylistNode* thisNode);
+void PrintplaylistNode(PlaylistNode* thisNode);
 
 void PrintMenuOptions();
 int NumberOfSongs(PlaylistNode* thisNode[]);
