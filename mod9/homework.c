@@ -82,7 +82,7 @@ int main(int argc, char* argv[])
        //Parse the line and check for correct number of entries.
        valuesRead = sscanf(userText, "%49s %49s %d", firstName, lastName, &novelNum);
        if(valuesRead >= 1 && strcmp(firstName, "-1") == 0) {
-           printf("Exiting.\n");
+           
            inputDone = true;
        }
        else if (valuesRead == 3) {
@@ -103,5 +103,3 @@ int main(int argc, char* argv[])
 }
 
 // Function Definitions
-
-
