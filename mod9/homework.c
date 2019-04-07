@@ -20,6 +20,7 @@
 //For C code
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 //For C++ code
 //#include <iostream>
@@ -32,29 +33,30 @@
 // Main Function
 int main(int argc, char* argv[])
 {
-    #include<stdio.h>
+#include<stdio.h>
 #include <string.h>
 #include <ctype.h>
-
-int main(void) {
 
    /* Type your code here. */
    //(1) Prompt the user for a title for data. Output the title. (1 pt) 
    char title[50];
    char fColumn[50];
    char sColumn[50];
-   char *firstName1[50];
-   char *lastName1[50];
-   //char AuthName2[50];
-   //char AuthName3[50];
-   int NovelNum1 = 0;
-   //int NovelNum2[50];
-   //int NovelNum3[50];
+   char firstName[50];
+   char lastName[50];
+   //char userInput;
+   int valuesRead;
+   int novelNum;
+   const int USER_TEXT_LIMIT = 1000;
+   char userText[USER_TEXT_LIMIT];
+
+   bool inputDone;         //Flag to indicate next iteration
+   inputDone = false;
    
    
    printf("Enter a title for the data:\n");
-   printf("You entered: ");
    fgets(title, 50, stdin);
+   printf("You entered: ");
    printf("%s\n", title);
    
    //(2) Prompt the user for the headers of two columns of a table. Output the column headers. (1 pt)
@@ -72,12 +74,34 @@ int main(void) {
    // and seperate what is before the comma into the string and what is after into the integer variable
    
    printf("Enter a data point (-1 to stop input):\n");
-   scanf("%s %s, %d", &firstName1, &lastName1, NovelNum1);
-   printf("Data string: %s %s\n", firstName1, lastName1);
-   printf("Data integer: %d\n:", NovelNum1);
+   //Grab data as long as "-1" is not entered
+   while(!inputDone) {
+       //Grab entire line, store in userText
+       fgets(userText, USER_TEXT_LIMIT, stdin);
+
+       //Parse the line and check for correct number of entries.
+       valuesRead = sscanf(userText, "%49s %49s %d", firstName, lastName, &novelNum);
+       if(valuesRead >= 1 && strcmp(firstName, "-1") == 0) {
+           printf("Exiting.\n");
+           inputDone = true;
+       }
+       else if (valuesRead == 3) {
+           lastName[strlen(lastName)-1] = 0;
+           printf("Data string: %s %s\n", firstName, lastName);
+           printf("Data integer: %d\n", novelNum);
+           //printf("First name: %s\n", firstName);
+           //printf("Last name: %s\n", lastName);
+           //printf("Novel number: %d\n", novelNum);
+       }
+       else {
+           printf("Invalid entry. Please try again.\n\n");
+       }
+
+   }
  
     return 0;
 }
+
 // Function Definitions
 
 
