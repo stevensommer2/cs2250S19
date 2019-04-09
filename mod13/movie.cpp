@@ -17,83 +17,66 @@
  *
  * =====================================================================================
  */
-//For C++ code
+// For C++ Code
 #include <iostream>
-#include <iomanip>
-#include "movie.h"
+#include <iomanip>  // more cout options
+#include "Movie.h"
 using namespace std;
 
-
-//Default constructors
-Movie::Movie()
-{
-    title = "Nada";
-    year = 1888;
-    
-}
-
-//print info
-Movie::Movie(string title, int year)
+Movie::Movie(string title, int year, int stars)
 {
     set_title(title);
     set_year(year);
+    set_stars(stars);
 }
 
-//Destructor
+// Destructor
 Movie::~Movie()
 {
     cout << "Destroying Object" << endl;
 }
 
-Movie::Movie(string title)
-{
-    set_title(title);
-    set_year(1888);
-    stars = 0;
-}
-
-
-
+// Print info
 void Movie::info()const
 {
     int w = 10;
     cout << left
         << setw(w*3) << "TITLE"
-        << setw(w) << "Year" << endl;
+        << setw(w) << "YEAR" << endl;
     cout << setw(w*3) << get_title()
         << setw(w) << get_year() << endl;
 }
-
-
-
-// Function Prototypes
-
-void Movie::set_stars(int stars)
-{
-    this->stars = stars;
-}
-
+// Function Definitions
 void Movie::set_title(string set_title)
 {
-    //this-> = set_title; // optional because the names differ
+//    this->title = set_title;  // optional
     title = set_title;
 }
 
 void Movie::set_year(int year)
 {
-    if (year < 1988)
+    if (year < 1888)
     {
-        throw invalid_argument ("Year must be 1988 or later.");
+        throw invalid_argument("Year must be 1888 or later.");
     }
-
-    //This -> regers to yourself
+    // this-> refers to yourself
+    // required because of the same name
     this->year = year;
 }
-//define your getters
+
+void Movie::set_stars(int stars)
+{
+    // this-> refers to yourself
+    // required because of the same name
+    this->stars = stars;
+}
+
+// Define Getters
 string Movie::get_title() const
 {
     return title;
 }
+        
 int Movie::get_year() const
 {
     return year;
@@ -103,6 +86,4 @@ int Movie::get_stars() const
 {
     return stars;
 }
-
-
 
