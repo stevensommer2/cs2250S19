@@ -17,34 +17,24 @@
  *
  * =====================================================================================
  */
-
-
-//For C++ code
+// For C++ Code
 #include <iostream>
 using namespace std;
-#include "movie.h"
-
-// Constants and globals
-
-// Function Prototypes
+#include "Movie.h"
 
 // Main Function
 int main(int argc, char* argv[])
 {
-    // create object with default values
-    Movie m1();
+    // Create object with default values
+    Movie m1;
     m1.info();
-
-    //create object with some values
-    Movie m2("Rambo", 1991);
+    // Create object with some values
+    Movie m2("Rambo", 1991, 5);
     m2.info();
-
-    Movie m3("Superman");
+    // Create object with one set value, and a default value
+    Movie m3("Superman", 1987, 3);
     m3.info();
-
 
     return 0;
 }
-// Function Definitions
-
-
+// Function Defenitions
