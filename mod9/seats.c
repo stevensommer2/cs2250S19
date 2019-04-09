@@ -4,20 +4,13 @@
  * @created     : Tuesday Nov 13, 2018 15:12:48 UTC
  */
 #include <stdio.h>
-#include <string.h>
-#include <stdbool.h>
+#include "seats.h"
 
-typedef struct Seat_struct 
-{
-    char firstName[50];
-    char lastName[50];
-    int  amountPaid;
-} Seat;
 
 /*** Functions for Seat ***/
 void SeatMakeEmpty(Seat* seat) 
 {
-//    strcpy((*seat).firstName, "empty");
+//    strcpy((*seat).firstName, "empty"); SAME AS LINE BELOW
     strcpy(seat->firstName, "empty");
     strcpy(seat->lastName,  "empty");
     seat->amountPaid = 0;
@@ -39,9 +32,10 @@ void SeatPrint(Seat seat)
 /*** Functions for array of Seat ***/
 void SeatsMakeEmpty(Seat seats[], int numSeats) 
 {
-    int i;
-
-    for (i = 0; i < numSeats; ++i) {
+    for (int i = 0; i < numSeats; ++i) {
+        //take the address of a seat structure
+        //it uses the singular "seatMakeEmpty and loops it to empty
+        //all seats
         SeatMakeEmpty(&seats[i]);
     }
 }
@@ -55,58 +49,22 @@ void SeatsPrint(Seat seats[], int numSeats)
         SeatPrint(seats[i]);
     }
 }
+
+char SeatsMenu()
+    {
+        char input;
+        
+        printf("Enter command: \n");
+        printf("\t for printing press: p\n");
+        printf("\t for reservation press: r\n");
+        printf("\t to delete reservation: d\n");
+        printf("\t to quit press: q\n");
+
+        scanf(" %c", &input);
+
+        return input;
+    
+        }
 /*** End functions for array of Seat ***/
 
-int main(void) 
-{
-    const int NUM_SEATS = 5;
-    char userKey;
-    int  seatNum;
-    Seat allSeats[NUM_SEATS];
-    Seat currSeat;
-
-    userKey = '-';
-    seatNum = 0;
-
-    SeatsMakeEmpty(allSeats, NUM_SEATS);
-
-    while (userKey != 'q') {
-        printf("Enter command (p/r/q): \n");
-        scanf(" %c", &userKey);
-
-        if (userKey == 'p') { // Print seats
-            SeatsPrint(allSeats, NUM_SEATS);
-            printf("\n");
-        }
-        else if (userKey == 'r') { // Reserve seat
-            printf("Enter seat num: \n");
-            scanf("%d", &seatNum);
-
-            if (!SeatIsEmpty(allSeats[seatNum])) {
-                printf("Seat not empty.\n\n");
-            }
-            else {
-                printf("Enter first name: \n");
-                scanf("%s", currSeat.firstName);
-                printf("Enter last name: \n");
-                scanf("%s", currSeat.lastName);
-                printf("Enter amount paid: \n");
-                scanf("%d", &currSeat.amountPaid);
-
-                allSeats[seatNum] = currSeat;
-
-                printf("Completed.\n\n");
-            }
-        }
-        // FIXME: Add option to delete reservations
-        else if (userKey == 'q') { // Quit
-            printf("Quitting.\n");
-        }
-        else {
-            printf("Invalid command.\n\n");
-        }
-    }
-
-    return 0;
-}
 
