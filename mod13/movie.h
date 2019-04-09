@@ -17,44 +17,34 @@
  */
 #ifndef  MOVIE__INC__
 #define  MOVIE__INC__
-#include <string>
+
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Movie
 {
-    //Only the member has access to 
-    // Data members are private
+    // Only the member has access to  data members are private
     private:
-        string title; 
-        int year = 0;
+        string title;
+        int year;
         int stars;
-
-    // Anyone has access to it
-    // Member functions are public
+   // Anyone has access to it. Member functions are public
     public:
         // Constructors
-        Movie();      //Default
-        // Another constructor
-        // Movie(string title = "", int year);
-        Movie(string title, int year);
-        //Movie(string title);
-       
+        Movie(string title = "", int year = 1988, int stars = 0);
+        // Destructor
         ~Movie();
-
-
         // "Setters"
         void set_title(string set_title);
-        void set_year(int set_year);
+        void set_year(int year);
         void set_stars(int stars);
         // "Getters"
         string get_title() const;
         int get_year() const;
-        //void info() const;
         int get_stars() const;
-
-
-}; //End of movie classe
+        // Others
+        void info() const;
+}; // end of Movie class
 
 #endif /* ----- #ifndef MOVIE__INC__ ----- */
-
