@@ -35,6 +35,7 @@ int main(int argc, char* argv[])
     //      <addressType> malloc(totalNumberOfBytes)
     //  We are creating a dynamically allocated array through a pointer
     grades = (int *)malloc(numGrades * sizeof(int));
+    printf("You requested %ld bytes\n", numGrades * sizeof(int));
     /*Check that you get a valid address. was the memory allocated? */
     if (grades == NULL)
     {
