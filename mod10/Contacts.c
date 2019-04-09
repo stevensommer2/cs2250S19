@@ -49,7 +49,7 @@ ContactNode* GetNextContact(ContactNode* contact)
 void PrintContactNode(const ContactNode* contact)
 {
     printf("Name: %s\n", contact->contactName); //may need to fix how this handles the new lines
-   // printf("Phone number: %s\n\n", contact->contactPhoneNum);//same as above
+    printf("Phone number: %s\n\n", contact->contactPhoneNum);//same as above
     return;
 }
 
