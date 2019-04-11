@@ -45,8 +45,11 @@
 #include <fstream>      // for file stream
 #include <sstream>      // to read strings with spaces
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "movie.h"
 =======
+=======
+>>>>>>> 718a4f354e7216b18e993a132f8e0646a8a0361a
 #include <stdio.h>
 #include "Movie.h"
 >>>>>>> 718a4f354e7216b18e993a132f8e0646a8a0361a
@@ -69,6 +72,10 @@ int main(int argc, char* argv[])
     while(command != 'x')
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        display_menu();
+>>>>>>> 718a4f354e7216b18e993a132f8e0646a8a0361a
 =======
         display_menu();
 >>>>>>> 718a4f354e7216b18e993a132f8e0646a8a0361a
@@ -77,6 +84,7 @@ int main(int argc, char* argv[])
         switch(command)
         {
             case 'v':
+<<<<<<< HEAD
 <<<<<<< HEAD
             view_movies(movies);
             break;
@@ -93,6 +101,8 @@ int main(int argc, char* argv[])
             cout << "Not a valid command. Please tru again." << endl;
         } // end of switch(command)
 =======
+=======
+>>>>>>> 718a4f354e7216b18e993a132f8e0646a8a0361a
                 view_movies(movies);
                 break;
             case 'a':
@@ -107,6 +117,9 @@ int main(int argc, char* argv[])
             default:
                 cout << "Not a valid command. Please try again." << endl;
         }  // end of switch(command)
+<<<<<<< HEAD
+>>>>>>> 718a4f354e7216b18e993a132f8e0646a8a0361a
+=======
 >>>>>>> 718a4f354e7216b18e993a132f8e0646a8a0361a
     } // end of while command
 
