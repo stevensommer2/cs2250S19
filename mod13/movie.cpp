@@ -20,7 +20,7 @@
 // For C++ Code
 #include <iostream>
 #include <iomanip>  // more cout options
-#include "Movie.h"
+#include "movie.h"
 using namespace std;
 
 Movie::Movie(string title, int year, int stars)
