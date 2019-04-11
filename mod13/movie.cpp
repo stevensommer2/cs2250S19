@@ -17,6 +17,7 @@
  *
  * =====================================================================================
  */
+
 // For C++ Code
 #include <iostream>
 #include <iomanip>  // more cout options
@@ -33,7 +34,7 @@ Movie::Movie(string title, int year, int stars)
 // Destructor
 Movie::~Movie()
 {
-    cout << "Destroying Object" << endl;
+//    cout << "Destroying Object" << endl;
 }
 
 // Print info
@@ -87,3 +88,19 @@ int Movie::get_stars() const
     return stars;
 }
 
+bool Movie::iequals(const Movie& to_compare) 
+{
+    return (to_upper(title) == to_upper(to_compare.title) &&
+            year == to_compare.year);
+}
+
+// private function
+string Movie::to_upper(string str) 
+{
+    string str_upper;
+    for (char c : str) 
+    {
+        str_upper.push_back(toupper(c));
+    }
+    return str_upper;
+}
