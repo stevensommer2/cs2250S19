@@ -25,7 +25,7 @@
 #include <string>       // for strings
 #include <fstream>      // for file stream
 #include <sstream>      // to read strings with spaces
-#include "Movie.h"
+#include "movie.h"
 using namespace std;
 // Constants and Globals
 const string movie_file = "movies.txt";
@@ -42,9 +42,25 @@ int main(int argc, char* argv[])
     char command = 'v';
     while(command != 'x')
     {
-        view_movies(movies);
-
-        command = 'x';
+        cout << "Command: ";
+        cin >> command;
+        switch(command)
+        {
+            case 'v':
+            view_movies(movies);
+            break;
+            case 'a':
+            //add movie(movies);
+            break;
+            case 'd':
+            //delete_movie(movies);
+            break;
+            case 'x':
+            cout << "Bye!" << endl << endl;
+            break;
+            default: 
+            cout << "Not a valid command. Please tru again." << endl;
+        } // end of switch(command)
     } // end of while command
 
     return 0;
