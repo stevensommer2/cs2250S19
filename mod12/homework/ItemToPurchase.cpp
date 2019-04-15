@@ -17,24 +17,86 @@
  *
  * =====================================================================================
  */
-//For C code
-#include <stdio.h>
-#include <stdlib.h>
+// For C++ Code
+#include <iostream>
+using namespace std;
+#include "ItemToPurchase.h"
 
-//For C++ code
-//#include <iostream>
-//using namespace std;
 
-// Constants and globals
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  ItemToPurchase
+ *  Description:  Constructor for Item to purchase. 
+ *  Set itemName = "none"
+ *  itemPrice = 0, and itemQuantity = 0
+ * =====================================================================================
+ */
 
-// Function Prototypes
 
-// Main Function
-int main(int argc, char* argv[])
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  SetName
+ *  Description:  Set the name variable
+ * =====================================================================================
+ */
+
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  SetPrice
+ *  Description:  Set the Purchase price
+ * =====================================================================================
+ */
+
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  SetQuantity
+ *  Description:  Set the item quantity 
+ * =====================================================================================
+ */
+
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  GetName
+ *  Description:  Get the name variable
+ * =====================================================================================
+ */
+
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  GetPrice
+ *  Description:  Get the Purchase price
+ * =====================================================================================
+ */
+
+
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  GetQuantity
+ *  Description:  Get the item quantity 
+ * =====================================================================================
+ */
+
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  Print
+ *  Description:  Print Item Purchased
+ * =====================================================================================
+ */
+void ItemToPurchase::Print() 
 {
-
-    return 0;
+    cout << itemName << " " << itemQuantity << " @ $"
+        << itemPrice << " = $" << itemPrice * itemQuantity << endl;
 }
-// Function Definitions
-
-
