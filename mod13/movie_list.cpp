@@ -18,25 +18,6 @@
  * =====================================================================================
  */
 
-/*
- * =====================================================================================
- *
- *       Filename:  movie_list.cpp
- *
- *    Description:  Create a movie list program. Loads information from txt file
- *                  then, it presents the user with a menu to interact with the data.
- *
- *        Version:  1.0
- *        Created:  04/09/2019 09:41:40 AM
- *       Revision:  none
- *       Compiler (C++):  g++ movie_list.cpp Movie.cpp -o movie_list.out
- *          Usage:  ./movie_list.out 
- *
- *         Author:  Hugo Valle (), hugovalle1@weber.edu
- *   Organization:  WSU
- *
- * =====================================================================================
- */
 // For C++ Code
 #include <iostream>
 #include <iomanip>      // pretty output
@@ -44,15 +25,8 @@
 #include <string>       // for strings
 #include <fstream>      // for file stream
 #include <sstream>      // to read strings with spaces
-<<<<<<< HEAD
-<<<<<<< HEAD
 #include "movie.h"
-=======
-=======
->>>>>>> 718a4f354e7216b18e993a132f8e0646a8a0361a
 #include <stdio.h>
-#include "Movie.h"
->>>>>>> 718a4f354e7216b18e993a132f8e0646a8a0361a
 using namespace std;
 // Constants and Globals
 const string movie_file = "movies.txt";
@@ -71,21 +45,12 @@ int main(int argc, char* argv[])
     char command = 'v';
     while(command != 'x')
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
         display_menu();
->>>>>>> 718a4f354e7216b18e993a132f8e0646a8a0361a
-=======
-        display_menu();
->>>>>>> 718a4f354e7216b18e993a132f8e0646a8a0361a
         cout << "Command: ";
         cin >> command;
         switch(command)
         {
             case 'v':
-<<<<<<< HEAD
-<<<<<<< HEAD
             view_movies(movies);
             break;
             case 'a':
@@ -100,30 +65,9 @@ int main(int argc, char* argv[])
             default: 
             cout << "Not a valid command. Please tru again." << endl;
         } // end of switch(command)
-=======
-=======
->>>>>>> 718a4f354e7216b18e993a132f8e0646a8a0361a
-                view_movies(movies);
-                break;
-            case 'a':
-                 add_movie(movies);
-                break;
-            case 'd':
-                // delete_movie(movies);
-                break;
-            case 'x':
-                cout << "Bye!" << endl << endl;
-                break;
-            default:
-                cout << "Not a valid command. Please try again." << endl;
-        }  // end of switch(command)
-<<<<<<< HEAD
->>>>>>> 718a4f354e7216b18e993a132f8e0646a8a0361a
-=======
->>>>>>> 718a4f354e7216b18e993a132f8e0646a8a0361a
-    } // end of while command
 
     return 0;
+}
 }
 // Function Defenitions
 void view_movies(const vector<Movie>& movies)
