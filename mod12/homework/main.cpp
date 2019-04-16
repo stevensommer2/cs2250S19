@@ -20,6 +20,7 @@
 // For C++ Code
 #include <iostream>
 #include <iomanip>
+#include <string>
 #include "ItemToPurchase.h"
 using namespace std;
 
@@ -46,14 +47,14 @@ int main()
     {
         cout << "Item " << i + 1 << endl;
         cout << "Enter the item name:" << endl;
-        cin.ignore(1000, '\n');
+        //cin.ignore(1000, '\n');
         getline(cin, name);
         if(i < 1)
         {
             name1 = name;
         }
 
-        if(i > 1)
+        if(i > 0)
         {
             name2 = name;
         }
@@ -105,10 +106,10 @@ int main()
     // Print Total
     cout << "TOTAL COST" << endl;
     //item1.Print();
-    cout << name1 << quantity1 << " @ $" << price1 << "= $" << quantity1 * price1 << endl;
+    cout << name1 << " " << quantity1 << " @ $" << price1 << "= $" << quantity1 * price1 << endl;
   
     //item2.Print();
-    cout << name2 << quantity2 << " @ $" << price2 << " = $" << quantity2 * price2 << endl;
+    cout << name2 << " " << quantity2 << " @ $" << price2 << " = $" << quantity2 * price2 << endl;
 
     cout << endl;
     cout << "Total: $" << quantity1 * price1 + quantity2 * price2 << endl;
