@@ -24,11 +24,15 @@ class ItemToPurchase
 {
     private:
         string itemName;
+        // will likely later need an string description later
         int itemPrice;
         int itemQuantity;
 
     public:
+        ItemToPurchase(string name, string description, int itemPrice, int itemQuantity);
         ItemToPurchase();
+        //~ItemToPurchase();
+
         // Setters here 
         void SetName(string name);
         void SetPrice(int price);
@@ -39,6 +43,11 @@ class ItemToPurchase
         int GetQuantity() const;
         // Other Methods
         void Print();
+        void PrintItemCost() const;
+        //will likely use print item description if like the similar C program.
+        //void PrintItemDescription() const;
+
+
 };
 
 #endif /* ----- #ifndef ITEMTOPURCHASE__INC__ ----- */

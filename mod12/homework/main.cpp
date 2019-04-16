@@ -29,9 +29,16 @@ int main()
     int i;
     const int NUM_ITEMS = 2;
     string name;
+    string name1;
+    string name2;
+
     int price;
+    int price1;
+    int price2;
     int quantity;
-    double total;
+    int quantity1;
+    int quantity2;
+    //int total;
     ItemToPurchase item1;
     ItemToPurchase item2;
 
@@ -41,13 +48,48 @@ int main()
         cout << "Enter the item name:" << endl;
         cin.ignore(1000, '\n');
         getline(cin, name);
+        if(i < 1)
+        {
+            name1 = name;
+        }
+
+        if(i > 1)
+        {
+            name2 = name;
+        }
+
+
+
 
         cout << "Enter the item price:" << endl;
         cin >> price;
+        if(i < 1)
+        {
+            price1 = price;
+        }
+        if(i > 0)
+        {
+            price2 = price;
+        }
+
+        //cout << price1;
+        //cout << price2;
+        //cout << endl;
 
         cout << "Enter the item quantity:" << endl;
         cin >> quantity;
+        if(i < 1)
+        {
+            quantity1 = quantity;
+        }
+
+        if(i > 0)
+        {
+            quantity2 = quantity;
+        }
+
         cout << endl;
+
 
         // Set the Object values for 1
 
@@ -62,10 +104,14 @@ int main()
 
     // Print Total
     cout << "TOTAL COST" << endl;
-    item1.Print();
-    item2.Print();
+    //item1.Print();
+    cout << name1 << quantity1 << " @ $" << price1 << "= $" << quantity1 * price1 << endl;
+  
+    //item2.Print();
+    cout << name2 << quantity2 << " @ $" << price2 << " = $" << quantity2 * price2 << endl;
+
     cout << endl;
-    cout << "Total: $" << total << endl;
+    cout << "Total: $" << quantity1 * price1 + quantity2 * price2 << endl;
 
 
     return 0;

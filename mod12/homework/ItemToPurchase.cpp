@@ -31,6 +31,22 @@ using namespace std;
  *  itemPrice = 0, and itemQuantity = 0
  * =====================================================================================
  */
+ItemToPurchase::ItemToPurchase(string name, string description, int itemPrice, int itemQuantity)
+{
+    SetName(name);
+    SetPrice(itemPrice);
+    //SetDescription(description);
+    SetQuantity(itemQuantity);
+}
+ItemToPurchase::ItemToPurchase()
+{
+    SetName("none");
+    //SetDescription("none");
+    SetPrice(0);
+    SetQuantity(0);
+}
+
+
 
 
 
@@ -41,8 +57,11 @@ using namespace std;
  * =====================================================================================
  */
 
+void ItemToPurchase::SetName(string name)
+{
+    this->itemName = name;
 
-
+}
 /* 
  * ===  FUNCTION  ======================================================================
  *         Name:  SetPrice
@@ -50,7 +69,10 @@ using namespace std;
  * =====================================================================================
  */
 
-
+void ItemToPurchase::SetPrice(int price)
+{
+    this->itemPrice = price;
+}
 
 /* 
  * ===  FUNCTION  ======================================================================
@@ -60,6 +82,12 @@ using namespace std;
  */
 
 
+void ItemToPurchase::SetQuantity(int quantity)
+{
+    this->itemQuantity = quantity;
+
+}
+
 
 /* 
  * ===  FUNCTION  ======================================================================
@@ -67,6 +95,11 @@ using namespace std;
  *  Description:  Get the name variable
  * =====================================================================================
  */
+
+string ItemToPurchase::GetName() const
+{
+    return itemName;
+}
 
 
 
@@ -76,6 +109,10 @@ using namespace std;
  *  Description:  Get the Purchase price
  * =====================================================================================
  */
+int ItemToPurchase::GetPrice() const
+{
+    return itemPrice;
+}
 
 
 
@@ -87,7 +124,10 @@ using namespace std;
  * =====================================================================================
  */
 
-
+int ItemToPurchase::GetQuantity() const
+{
+    return itemQuantity;
+}
 
 /* 
  * ===  FUNCTION  ======================================================================
@@ -98,5 +138,5 @@ using namespace std;
 void ItemToPurchase::Print() 
 {
     cout << itemName << " " << itemQuantity << " @ $"
-        << itemPrice << " = $" << itemPrice * itemQuantity << endl;
+        << itemPrice << " = $" << GetPrice() * GetQuantity() << endl;
 }
