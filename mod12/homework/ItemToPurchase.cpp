@@ -35,13 +35,14 @@ ItemToPurchase::ItemToPurchase(string name, string description, int itemPrice, i
 {
     SetName(name);
     SetPrice(itemPrice);
-    //SetDescription(description);
+    SetDescription(description);
     SetQuantity(itemQuantity);
 }
+
 ItemToPurchase::ItemToPurchase()
 {
     SetName("none");
-    //SetDescription("none");
+    SetDescription("none");
     SetPrice(0);
     SetQuantity(0);
 }
@@ -91,6 +92,16 @@ void ItemToPurchase::SetQuantity(int quantity)
 
 /* 
  * ===  FUNCTION  ======================================================================
+ *         Name:  SetDescription
+ *  Description:  
+ * =====================================================================================
+ */
+void ItemToPurchase::SetDescription(string description) 
+{
+    this->description=description;
+}
+/* 
+ * ===  FUNCTION  ======================================================================
  *         Name:  GetName
  *  Description:  Get the name variable
  * =====================================================================================
@@ -131,6 +142,16 @@ int ItemToPurchase::GetQuantity() const
 
 /* 
  * ===  FUNCTION  ======================================================================
+ *         Name:  GetDescription
+ *  Description:  
+ * =====================================================================================
+ */
+string ItemToPurchase::GetDescription()const
+{
+    return description;
+}
+/* 
+ * ===  FUNCTION  ======================================================================
  *         Name:  Print
  *  Description:  Print Item Purchased
  * =====================================================================================
@@ -140,3 +161,37 @@ void ItemToPurchase::Print()
     cout << itemName << " " << itemQuantity << " @ $"
         << itemPrice << " = $" << GetPrice() * GetQuantity() << endl;
 }
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  PrintItemCost
+ *  Description:  
+ * =====================================================================================
+ */
+void ItemToPurchase::PrintItemCost() const
+{
+    cout << GetName() << " " << GetQuantity() << " @ $" << GetPrice()
+         << " = $" << GetQuantity() * GetPrice() << endl;
+}
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  PrintItemDescription
+ *  Description:  
+ * =====================================================================================
+ */
+void ItemToPurchase::PrintItemDescription()const
+{
+    cout << GetDescription();
+}
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  Destroyer
+ *  Description:  
+ * =====================================================================================
+ */
+ItemToPurchase::~ItemToPurchase() {}
+
+

@@ -19,101 +19,117 @@
  */
 // For C++ Code
 #include <iostream>
-#include <iomanip>
-#include <string>
-#include "ItemToPurchase.h"
+#include "ShoppingCart.h"
 using namespace std;
 
 // Main Function
+void PrintOptions();
+bool validChar(char input);
 int main()
 {
-    int i;
-    const int NUM_ITEMS = 2;
-    string name;
-    string name1;
-    string name2;
+    char userInput = '-';
+    string tempName;
+    string tempDate;
+    string tempString;
+    string tempDescription;
+    int tempQuantity;
+    int tempPrice;
 
-    int price;
-    int price1;
-    int price2;
-    int quantity;
-    int quantity1;
-    int quantity2;
-    //int total;
-    ItemToPurchase item1;
-    ItemToPurchase item2;
-
-    for (i = 0; i < NUM_ITEMS; ++i) 
+    cout << "Enter customer's name: " << endl;
+    getline(cin, tempName);
+    cout << "Enter today's date: " << endl;
+    getline(cin, tempDate);
+    cout << endl << "Customer name: " << tempName << endl
+         << "Today's date: " << tempDate << endl << endl;
+    ShoppingCart userCart(tempName, tempDate);
+    while(userInput != 'q')
     {
-        cout << "Item " << i + 1 << endl;
-        cout << "Enter the item name:" << endl;
-        //cin.ignore(1000, '\n');
-        getline(cin, name);
-        if(i < 1)
+        PrintOptions();
+        cin >> userInput;
+        while(validChar(userInput) == 0)
         {
-            name1 = name;
+            cout << "Choose an option:" << endl;
+            cin >> userInput;
         }
-
-        if(i > 0)
+        switch(userInput)
         {
-            name2 = name;
+            case 'd':
+                cout << "REMOVE ITEM FROM CART" << endl
+                     << "Enter name of item to remove:" << endl;
+                break;
+            case 's':
+                cout << "ADD ITEM TO CART" << endl
+                     << "Enter the item name:" << endl;
+                cin.ignore();
+                getline(cin, tempDescription);
+                cout << "Enter the item price:" << endl;
+                cin >> tempPrice;
+                cout << "Enter the item quntity:" << endl;
+                cin >> tempQuantity;
+                cout << endl;
+                userCart.AddItem(ItemToPurchase(tempString, tempDescription, tempPrice, tempQuantity));
+                cin.ignore();
+                break;
+            case 'c':
+                cout << "CHANGE ITEM QUANTITY" << endl
+                     << "Enter the itm name:" << endl;
+                cin.ignore();
+                getline(cin, tempString);
+                userCart.ModifyItem(tempString);
+                cin.ignore();
+                break;
+            case 'i':
+                cout << "OUTPUT ITEMS' DESCRIPTIONS" << endl;
+                userCart.PrintDescription();
+                cin.ignore();
+                break;
+            case 'o':
+                cout << "OUTPUT SHOPPING CART" << endl;
+                userCart.PrintTotal();
+                cin.ignore();
+                break;
+            case 'q':
+            break;
         }
-
-
-
-
-        cout << "Enter the item price:" << endl;
-        cin >> price;
-        if(i < 1)
-        {
-            price1 = price;
-        }
-        if(i > 0)
-        {
-            price2 = price;
-        }
-
-        //cout << price1;
-        //cout << price2;
-        //cout << endl;
-
-        cout << "Enter the item quantity:" << endl;
-        cin >> quantity;
-        if(i < 1)
-        {
-            quantity1 = quantity;
-        }
-
-        if(i > 0)
-        {
-            quantity2 = quantity;
-        }
-
-        cout << endl;
-
-
-        // Set the Object values for 1
-
-        // Set the Object values for 2
-
-
-
-        cin.ignore();
-    }
-
-    // Calculate the total
-
-    // Print Total
-    cout << "TOTAL COST" << endl;
-    //item1.Print();
-    cout << name1 << " " << quantity1 << " @ $" << price1 << "= $" << quantity1 * price1 << endl;
-  
-    //item2.Print();
-    cout << name2 << " " << quantity2 << " @ $" << price2 << " = $" << quantity2 * price2 << endl;
-
-    cout << endl;
-    cout << "Total: $" << quantity1 * price1 + quantity2 * price2 << endl;
-
-
-    return 0;
 }
+return 0;}
+
+
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  PrintMenu
+ *  Description:  
+ * =====================================================================================
+ */
+void PrintMenu(ShoppingCart userCart) {} void PrintOptions()
+{
+    cout << "MENU" << endl << "a - Add item to cart" << endl
+         << "d - Remove item from cart" << endl
+         << "c - Change item quantity" << endl
+         << "i - Output items' descriptions" << endl
+         << "o - Output shopping cart" << endl
+         << "q - Quit" << endl << endl << "Choose an option:" << endl;
+}
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  checking answer
+ *  Description:  
+ * =====================================================================================
+ */
+bool validChar(char input)
+{
+    if((input == 'a')||(input == 'd')||(input == 'c')||(input == 'i')
+            ||(input == 'o')||(input == 'q'))
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
