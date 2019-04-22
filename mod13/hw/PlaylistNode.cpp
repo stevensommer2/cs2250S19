@@ -32,13 +32,13 @@ using namespace std;
  *  Hint: Remember to use the: "this->" pointer to access the object's data members
  * =====================================================================================
  */
-PlaylistNode::PlaylistNode()
+PlaylistNode::PlaylistNode() 
 {
     this->uniqueID = "none";
     this->songName = "none";
     this->artistName = "none";
-    this->songLength = 0;
-    this->nextNodePtr = 0;
+    this -> songLength = 0;
+    this -> nextNodePtr = 0; //stay consistent on these
     return;
 }
 
@@ -55,12 +55,12 @@ PlaylistNode::PlaylistNode()
 PlaylistNode::PlaylistNode(string initID, string initSongName,
         string initArtistName, int initSongLength, PlaylistNode* nextLoc) 
 {
-    
-    this->uniqueID = initID;
-    this->songName = initSongName;
-    this->artistName = initArtistName;
-    this->songLength = initSongLength;
-    this->nextNodePtr = nextLoc;
+    this-> uniqueID = initID;
+    this-> songName = initSongName;
+    this-> artistName = initArtistName;
+    this-> songLength = initSongLength;
+    this-> nextNodePtr =  nextLoc;
+
     return;
 }
 
@@ -74,10 +74,13 @@ PlaylistNode::PlaylistNode(string initID, string initSongName,
  */
 void PlaylistNode::InsertAfter(PlaylistNode* nodePtr) 
 {
-    PlaylistNode* tmpNext = 0;  //dummy pointer
-    tmpNext = this->nextNodePtr; //saved as current address
+    PlaylistNode* tmpNext = 0; //dummy pointer
+    tmpNext = this->nextNodePtr;
     this->nextNodePtr = nodePtr; //point to next node
-    nodePtr->nextNodePtr = tmpNext; //update next node address
+    nodePtr -> nextNodePtr = tmpNext;  //update to current node
+
+    
+
     return;
 }
 
@@ -88,7 +91,7 @@ void PlaylistNode::InsertAfter(PlaylistNode* nodePtr)
  *  Description:  Setter the nextNodePtr.
  * =====================================================================================
  */
-void PlaylistNode::SetNext(PlaylistNode* nodePtr) 
+void PlaylistNode::SetNext(PlaylistNode* nodePtr)
 {
     this->nextNodePtr = nodePtr;
     return;
@@ -123,7 +126,7 @@ string PlaylistNode::GetSongName() const
  *  Description:  Getter for artistName
  * =====================================================================================
  */
-string PlaylistNode::GetArtistName() const
+string PlaylistNode::GetArtistName() const 
 {
     return this->artistName;
 }
@@ -135,7 +138,7 @@ string PlaylistNode::GetArtistName() const
  *  Description:  Getter for songLength
  * =====================================================================================
  */
-int PlaylistNode::GetSongLength() const
+int PlaylistNode::GetSongLength() const 
 {
     return this->songLength;
 }
@@ -153,7 +156,6 @@ PlaylistNode* PlaylistNode::GetNext()
 }
 
 
-
 /* 
  * ===  FUNCTION  ======================================================================
  *         Name:  PrintPlaylistNode
@@ -168,5 +170,3 @@ void PlaylistNode::PrintPlaylistNode()
     cout << "Song Length (in seconds): " << this->songLength << endl;
     return;
 }
-
-
