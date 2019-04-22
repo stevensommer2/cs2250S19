@@ -56,15 +56,21 @@ int main()
             case 'd':
                 cout << "REMOVE ITEM FROM CART" << endl
                      << "Enter name of item to remove:" << endl;
+                cin.ignore();
+                getline(cin, tempString);
+                userCart.RemoveItem(tempString);
+                cout << endl;
                 break;
-            case 's':
+            case 'a':
                 cout << "ADD ITEM TO CART" << endl
                      << "Enter the item name:" << endl;
                 cin.ignore();
+                getline(cin, tempString);
+                cout << "Enter the item description:" << endl;
                 getline(cin, tempDescription);
                 cout << "Enter the item price:" << endl;
                 cin >> tempPrice;
-                cout << "Enter the item quntity:" << endl;
+                cout << "Enter the item qunaitity:" << endl;
                 cin >> tempQuantity;
                 cout << endl;
                 userCart.AddItem(ItemToPurchase(tempString, tempDescription, tempPrice, tempQuantity));
@@ -72,7 +78,7 @@ int main()
                 break;
             case 'c':
                 cout << "CHANGE ITEM QUANTITY" << endl
-                     << "Enter the itm name:" << endl;
+                     << "Enter the item name:" << endl;
                 cin.ignore();
                 getline(cin, tempString);
                 userCart.ModifyItem(tempString);
