@@ -17,7 +17,30 @@
  */
 #ifndef  CONTACTNODE__INC__
 #define  CONTACTNODE__INC__
-    <+DETAILED+>
 
-#endif /* ----- #ifndef CONTACTNODE__INC__ ----- */
+#include <string>
+using namespace std;
+
+class ContactNode 
+{
+    private:
+        string contactName;
+        string contactPhoneNum;
+        ContactNode* nextNodePtr;   // pointer to next object
+
+    public:
+        // Default Constructor
+        ContactNode();
+        // Parameter based Constructor
+        ContactNode(string initName, string initPhoneNum, ContactNode* nextLoc = 0);
+        // Getters
+        string GetName() const;
+        string GetPhoneNumber() const;
+        // Other methods
+        ContactNode* GetNext();
+        void InsertAfter(ContactNode* nodePtr);
+        void PrintContactNode();
+};
+
+#endif
 
