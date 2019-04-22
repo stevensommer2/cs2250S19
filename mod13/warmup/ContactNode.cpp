@@ -17,24 +17,103 @@
  *
  * =====================================================================================
  */
-//For C code
-#include <stdio.h>
-#include <stdlib.h>
 
-//For C++ code
-//#include <iostream>
-//using namespace std;
+#include <iostream>
+using namespace std;
+#include "ContactNode.h"
 
-// Constants and globals
-
-// Function Prototypes
-
-// Main Function
-int main(int argc, char* argv[])
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  ContactNode
+ *  Description:  Default constructor. This constructor will NOT set any data
+ * =====================================================================================
+ */
+ContactNode::ContactNode()
 {
 
-    return 0;
+this->nextNodePtr=0;
 }
-// Function Definitions
 
 
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  ContactNode
+ *  Description:  Default constructor. This constructor sets the object's values
+ *  string initName
+ *  string initPhoneNum
+ *  ContactNode* nextLoc
+ * =====================================================================================
+ */
+ContactNode::ContactNode(string initName, string initPhoneNum, ContactNode* nextLoc)
+{
+    this->contactName=initName;
+    this->contactPhoneNum=initPhoneNum;
+    this->nextNodePtr=nextLoc;
+
+
+
+
+}
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  InsertAfter
+ *  Description:  Insert a node after the last one
+ * =====================================================================================
+ */
+void ContactNode::InsertAfter(ContactNode* nodePtr) 
+{
+
+this->nextNodePtr=nodePtr;
+    return;
+}
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  GetName
+ *  Description:  Return the contact's name
+ * =====================================================================================
+ */
+string ContactNode::GetName() const
+{
+    return this->contactName;
+}
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  GetPhoneNumber
+ *  Description:  Return the phone number
+ * =====================================================================================
+ */
+string ContactNode::GetPhoneNumber() const
+{
+    return this->contactPhoneNum;
+}
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  GetNext
+ *  Description:  Return the next node address.
+ * =====================================================================================
+ */
+ContactNode* ContactNode::GetNext() 
+{
+    return this->nextNodePtr;
+}
+
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  PrintContactNode
+ *  Description:  Print Contact Node information
+ * =====================================================================================
+ */
+void ContactNode::PrintContactNode() 
+{
+    cout << "Name: " << this->contactName << endl;
+    cout << "Phone number: " << this->contactPhoneNum << endl;
+    return;
+}
